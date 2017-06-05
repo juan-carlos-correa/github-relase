@@ -8,6 +8,8 @@ import Header from './components/Header/';
 import ExternalLink from './components/ExternalLink/';
 import FormattedDate from './components/FormattedDate/';
 import HintMessage from './components/HintMessage/';
+import Paginator from './components/Paginator/';
+
 
 ReactDOM.render(
   <div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './HintMessage.css';
 
 class HintMessage extends React.PureComponent {
-  static PropTypes = {
+  static propTypes = {
     children: PropTypes.oneOfType([
       PropTypes.node,
       PropTypes.string
