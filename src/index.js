@@ -4,5 +4,9 @@ import App from './components/App/';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Header from './components/Header/';
+
+ReactDOM.render(
+  <Header title="Github Releases"/>,
+  document.getElementById('root'));
 registerServiceWorker();
