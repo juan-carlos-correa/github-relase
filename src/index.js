@@ -11,7 +11,7 @@ import FormattedDate from './components/FormattedDate/';
 ReactDOM.render(
   <div>
     <Header title="Github Releases"/>
-    <ExternalLink to="https://www.google.com.mx/" children="Google"/>
+    <ExternalLink to="https://www.google.com.mx/">Google</ExternalLink>
     <FormattedDate date="05/10/2017"/>
   </div>,
   document.getElementById('root'));
