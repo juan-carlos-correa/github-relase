@@ -5,8 +5,12 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 import Header from './components/Header/';
+import ExternalLink from './components/ExternalLink/';
 
 ReactDOM.render(
-  <Header title="Github Releases"/>,
+  <div>
+    <Header title="Github Releases"/>
+    <ExternalLink to="https://www.google.com.mx/" children="Google"/>
+  </div>,
   document.getElementById('root'));
 registerServiceWorker();
