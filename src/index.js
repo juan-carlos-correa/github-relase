@@ -9,7 +9,7 @@ import ExternalLink from './components/ExternalLink/';
 import FormattedDate from './components/FormattedDate/';
 import HintMessage from './components/HintMessage/';
 import Paginator from './components/Paginator/';
-
+import RepositoryRow from './components/RepositoryRow/';
 
 ReactDOM.render(
   <div>
