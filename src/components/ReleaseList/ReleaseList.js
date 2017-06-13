@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import HintMessage from '../HintMessage/';
 import ReleaseRow from '../ReleaseRow/';
+import Paginator from '../Paginator';
 
 class ReleaseList extends React.PureComponent {
   static propTypes = {
-    releases: PropTypes.arrayOf(PropTypes.object).isRequired,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
     loading: PropTypes.bool.isRequired,
     repoName: PropTypes.string.isRequired
   }
@@ -16,17 +17,17 @@ class ReleaseList extends React.PureComponent {
 
     if (this.props.loading) {
       text = <span>REtrieving releases of <b>{this.props.repoName}</b></span>;
-    } else if (this.props.releases.length === 0) {
+    } else if (this.props.data.length === 0) {
       text = <span><b>{this.props.repoName}</b> doesn't have any public release</span>;
     } else {
-      text = <span>Showing <b>{this.props.releases.length}</b> release of <b>{this.props.repoName}</b></span>
+      text = <span>Showing <b>{this.props.data.length}</b> release of <b>{this.props.repoName}</b></span>
     }
 
     return <HintMessage>{text}</HintMessage>;
   }
 
   renderTable() {
-    if (this.props.loading || this.props.releases.length === 0) {
+    if (this.props.loading || this.props.data.length === 0) {
       return null;
     } else {
       return (
@@ -40,7 +41,7 @@ class ReleaseList extends React.PureComponent {
             </tr>
           </thead>
           <tbody>
-            { this.props.releases.map(release =>
+            { this.props.data.map(release =>
               <ReleaseRow release={ release } key={ release.id } />
             )}
           </tbody>
@@ -59,4 +60,4 @@ class ReleaseList extends React.PureComponent {
   }
 }
 
-export default ReleaseList;
+export default Paginator(ReleaseList);
