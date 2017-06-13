@@ -17,12 +17,12 @@ class RepositoryRow extends React.PureComponent {
 
     return (
       <tr>
-        <td>{repo.full_name}</td>
-        <td><GithubAvatar author={repo.owner} /></td>
-        <td><FaStar />{repo.stargazers_count}</td>
-        <td><FaCodeFork />{repo.forks_count}</td>
+        <td>{ repo.full_name }</td>
+        <td><GithubAvatar author={ repo.owner } /></td>
+        <td><FaStar /> { repo.stargazers_count }</td>
+        <td><FaCodeFork /> { repo.forks_count }</td>
         <td className="align-right">
-          <Link className="button button-primary" to={ `/${repo.full_name}`}>Releases</Link>
+          <a className="button button-primary" href={ `/${repo.full_name}`}>Releases</a>
         </td>
       </tr>
     )

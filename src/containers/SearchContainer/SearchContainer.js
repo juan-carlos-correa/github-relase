@@ -18,44 +18,32 @@ class SearchContainer extends React.Component {
 
     this.onSubmit = this.onSubmit.bind(this);
   }
-  stubData() {
-    let repo = {
-      full_name: 'My Repository',
-      owner: {
-        login: 'Juan',
-        avatar_url: 'https://avatars0.githubusercontent.com/u/10777626?v=3&u=60191f3f31ea2737acba5547f54b4ed0ddfa9a19&s=400',
-        html_url: 'https://github.com/juan-carlos-correa'
-      },
-      stargazers: 1,
-      forks_count: 3
-    }
-    return [
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo),
-      Object.assign({}, repo)
-    ]
-  }
 
   onSubmit(value) {
     this.setState({loading: true});
 
-    console.log(`submit: ${value}`);
-
-    setTimeout(() => {
+    fetch(`https://api.github.com/search/repositories?q=${value}`)
+    .then(res => {
+      return res.json();
+    })
+    .then(json => {
+      console.log(json.items);
       this.setState({
         search: value,
         loading: false,
         queried: true,
-        results: this.stubData()
-      });
-    }, 2000)
+        results: json.items
+      })
+    })
+
+    // setTimeout(() => {
+    //   this.setState({
+    //     search: value,
+    //     loading: false,
+    //     queried: true,
+    //     results: this.stubData()
+    //   });
+    // }, 2000)
   }
 
   render() {
