@@ -9,16 +9,15 @@ import {
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-import BaseContainer from './containers/BaseContainer';
-import About from './components/About/';
+import SearchContainer from './containers/SearchContainer';
+import AboutContainer from './containers/AboutContainer/';
 
 ReactDOM.render(
   <HashRouter>
     <Switch>
-      <Route exact path="/" component={BaseContainer}>
+        <Route exact path="/" component={SearchContainer}/>
         <Route exact path=":user/:repo" />
-        <Route exact path="/about" component={About} />
-      </Route>
+        <Route exact path="/about" component={AboutContainer} />
     </Switch>
   </HashRouter>,
   document.getElementById('root'));

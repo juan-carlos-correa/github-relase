@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import Header from '../../components/Header';
 import SearchForm from '../../components/SearchForm';
 import RepositoryList from '../../components/RepositoryList';
+import NavBar from '../../components/NavBar/';
 
 class SearchContainer extends React.Component {
   constructor(props) {
@@ -35,21 +35,13 @@ class SearchContainer extends React.Component {
         results: json.items
       })
     })
-
-    // setTimeout(() => {
-    //   this.setState({
-    //     search: value,
-    //     loading: false,
-    //     queried: true,
-    //     results: this.stubData()
-    //   });
-    // }, 2000)
   }
 
   render() {
     return (
       <main className="container">
         <Header title="Github Releases"/>
+        <NavBar />
         <SearchForm onSubmit={this.onSubmit} search={this.state.search} />
         <RepositoryList data={this.state.results} loading={this.state.loading}
         queried={this.state.queried} search={this.state.search} />
