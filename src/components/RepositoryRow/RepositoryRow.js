@@ -14,7 +14,6 @@ class RepositoryRow extends React.PureComponent {
 
   render() {
     let repo = this.props.repo;
-
     return (
       <tr>
         <td>{ repo.full_name }</td>
@@ -22,7 +21,7 @@ class RepositoryRow extends React.PureComponent {
         <td><FaStar /> { repo.stargazers_count }</td>
         <td><FaCodeFork /> { repo.forks_count }</td>
         <td className="align-right">
-          <a className="button button-primary" href={ `/${repo.full_name}`}>Releases</a>
+          <Link className="button button-primary" to={ `/${repo.full_name}`}>Releases</Link>
         </td>
       </tr>
     )
