@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 
 class NavBar extends React.PureComponent {
   render () {
     return (
-      <nav>
-        <Link to="/" className="Link">Home</Link>
-        <Link to="/about" className="Link">About</Link>
+      <nav className="Navigation">
+        <Link exact to="/" className="Link" activeClassName="Link-active">Home</Link>
+        <Link exact to="/about" className="Link" activeClassName="Link-active">About</Link>
       </nav>
     )
   }
