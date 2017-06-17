@@ -51,7 +51,7 @@ export default PaginatedComponent => {
           cssClass = i === this.state.page ? `${ cssClass } Paginator__Page--active` : cssClass;
 
           pages.push(
-            <a href="#" className={ cssClass } key={i} onClick={(e) => this.onClick(e, i)}>
+            <a href="" className={ cssClass } key={i} onClick={(e) => this.onClick(e, i)}>
               {i + 1}
             </a>
           )

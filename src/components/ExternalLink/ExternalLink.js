@@ -22,7 +22,6 @@ class ExternalLink extends React.PureComponent {
         href={this.props.to}
         className={this.props.className}
         rel="noopener"
-        target="_blank"
       >
         {this.props.children}
       </a>

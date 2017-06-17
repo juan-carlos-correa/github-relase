@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '../../components/NavBar/';
 import Header from '../../components/Header';
-import SearchForm from '../../components/SearchForm';
 
 import ReleaseList from '../../components/ReleaseList';
 
