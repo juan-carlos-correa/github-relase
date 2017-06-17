@@ -1,16 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import NavBar from '../../components/NavBar/';
+import Header from '../../components/Header';
+import SearchForm from '../../components/SearchForm';
 
 import ReleaseList from '../../components/ReleaseList';
 
 class DetailsContainer extends React.Component {
-  static propTypes = {
-    params: PropTypes.shape({
-      user: PropTypes.string.isRequired,
-      repo: PropTypes.string.isRequired
-    }).isRequired
-  }
-
   constructor(props) {
     super(props);
 
@@ -18,10 +13,12 @@ class DetailsContainer extends React.Component {
       releases: [],
       loading: true
     }
+
+    this.back = this.back.bind(this);
   }
 
   get repoName() {
-    return `${this.props.params.user}/${this.props.params.repo}`;
+    return `${this.props.match.params.user}/${this.props.match.params.repo}`;
   }
 
   componentDidMount() {
@@ -38,14 +35,21 @@ class DetailsContainer extends React.Component {
       })
   }
 
+  back() {
+    this.props.history.goBack();
+  }
+
   render() {
     return (
-      <section>
+      <main className="container">
+        <Header title="Github Releases"/>
+        <NavBar />
         <h2>Releases of <b>{ this.repoName }</b></h2>
+        <button onClick={ this.back }>Back</button>
         <ReleaseList data={ this.state.releases } loading={ this.state.loading }
         repoName={ this.repoName } total={ this.state.releases.length }
         itemsPerPage={ 5 }/>
-      </section>
+      </main>
     )
   }
 }
